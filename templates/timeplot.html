@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Time Plot</title>
+		<link rel=stylesheet type=text/css href='/static/style.css'>
+    {{ css_resources|indent(4)|safe }}
+    {{ js_resources|indent(4)|safe }}
+    {{ plot_script|indent(4)|safe }}
+	</head>
+	<body>
+
+    <div>
+      <div class="features">
+        <p>{{ plot_div|indent(4)|safe }}</p>
+      </div>
+      <div class="features">
+        <form id='input' method='get' action='/index'>
+          <input type="submit" id="button" value="Back">
+        </form>
+      </div>
+    </div>
+	</body>
+</html>

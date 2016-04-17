@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- <link rel=stylesheet type=text/css href='{{ url_for('static',filename='style.css')}}'>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='jqcloud.min.css')}}'>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='jqcloud.min.js')}}'> -->
+<html lang="en">
+	<head>
+    <meta charset="utf-8">
+    <link rel=stylesheet type=text/css href='/static/style.css'>
+    <link rel=stylesheet type=text/css href='/static/jqcloud.min.css'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src='/static/jqcloud.min.js'></script>
+
+    <script>
+    function generateCloud(data) {
+      // data = {"https": 19, "cos": 19, "money": 18, "for": 6, "payments": 5, "to": 4, "the": 4, "paypalwish": 4, "loan": 4};
+      var word_list =  [];
+      for (var key in data) {
+        word_list.push({text: key, weight: data[key]});
+      }
+      $(function() {
+        $("#wordcloud").jQCloud(word_list,{width: 600, height: 400});
+      });
+    }
+    </script>
+    <title>Word Cloud</title>
+</head>
+
+<body onload="generateCloud({{ wcdata }})">
+  <div>
+    <div class="features">
+      <p><div id="wordcloud" style="width: 550px; height: 350px; border: 1px solid #ccc;"></div></p>
+    </div>
+    <div class="features">
+      <form id='input' method='get' action='/index'>
+        <input type="submit" id="button" value="Back">
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

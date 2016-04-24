@@ -122,8 +122,7 @@ def wt():
         except KeyError:
             dt += [0]
 
-    x = list(range(0,10))
-    fig = figure(title="Time evolution of: " + plotkey,x_axis_type="datetime")
+    fig = figure(title="Time evolution of: " + plotkey,x_axis_type="datetime",plot_width=550,plot_height=400)
     fig.line(times, dt, line_width=2)
 
     js_resources = INLINE.render_js()
